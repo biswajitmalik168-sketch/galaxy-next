@@ -1,5 +1,25 @@
-
-  
+export default function Home() {
+  return (
+    <main
+      style={{
+        minHeight: "100vh",
+        background:
+          "linear-gradient(135deg, #001f3f 0%, #0047ab 50%, #00aaff 100%)",
+        color: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <div style={{ textAlign: "center", maxWidth: "700px" }}>
+        <h1
+          style={{
+            fontSize: "3rem",
+            marginBottom: "20px",
+          }}
+        >
           🚀 Galaxy Next AI
         </h1>
 
@@ -80,3 +100,4 @@
     </main>
   );
 }
+
