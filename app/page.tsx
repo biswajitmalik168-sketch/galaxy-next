@@ -1,103 +1,29 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #001f3f 0%, #0047ab 50%, #00aaff 100%)",
-        color: "white",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      <div style={{ textAlign: "center", maxWidth: "700px" }}>
-        <h1
-          style={{
-            fontSize: "3rem",
-            marginBottom: "20px",
-          }}
-        >
-          🚀 Galaxy Next AI
-        </h1>
+    <main style={{ padding: "40px", textAlign: "center" }}>
+      <h1>🚀 Galaxy Next AI</h1>
 
-        <p
-          style={{
-            fontSize: "1.2rem",
-            marginBottom: "40px",
-            lineHeight: "1.8",
-          }}
-        >
-          Welcome to Galaxy Next AI by Biswajit Malik.
-          <br />
-          Explore AI-powered conversations, futuristic tools, and innovative
-          web experiences.
-        </p>
+      <p>Welcome to Galaxy Next AI by Biswajit Malik.</p>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "15px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <button
-            style={{
-              padding: "14px 28px",
-              border: "none",
-              borderRadius: "10px",
-              background: "#00aaff",
-              color: "white",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            Chat
-          </button>
+      <Link href="/chat">
+        <button style={{ padding: "12px 20px", margin: "10px" }}>
+          Chat
+        </button>
+      </Link>
 
-          <button
-            style={{
-              padding: "14px 28px",
-              border: "none",
-              borderRadius: "10px",
-              background: "#0066ff",
-              color: "white",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            About
-          </button>
+      <Link href="/about">
+        <button style={{ padding: "12px 20px", margin: "10px" }}>
+          About
+        </button>
+      </Link>
 
-          <button
-            style={{
-              padding: "14px 28px",
-              border: "none",
-              borderRadius: "10px",
-              background: "#003d99",
-              color: "white",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            Contact
-          </button>
-        </div>
-
-        <p
-          style={{
-            marginTop: "50px",
-            fontSize: "14px",
-            opacity: 0.8,
-          }}
-        >
-          © 2026 Galaxy Next AI | Owner: Biswajit Malik
-        </p>
-      </div>
+      <Link href="/contact">
+        <button style={{ padding: "12px 20px", margin: "10px" }}>
+          Contact
+        </button>
+      </Link>
     </main>
   );
 }
-
