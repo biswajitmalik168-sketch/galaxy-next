@@ -1,56 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import ChatInput from "@/components/ChatInput";
 
 export default function ChatPage() {
-  const [message, setMessage] = useState("");
-  const [reply, setReply] = useState("");
-
-  async function sendMessage() {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message }),
-    });
-
-    const data = await res.json();
-    setReply(data.reply || data.error);
-  }
-
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#111827",
+        background: "#0f172a",
         color: "white",
         padding: "20px",
+        fontFamily: "Arial, sans-serif",
       }}
     >
-      <h1>🤖 Galaxy Next AI Chat</h1>
+      <h1 style={{ marginBottom: "20px" }}>
+        🤖 Galaxy Next AI Chat
+      </h1>
 
-      <textarea
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Ask anything..."
+      <div
         style={{
-          width: "100%",
-          height: "120px",
-          color: "black",
+          background: "#1e293b",
+          padding: "20px",
+          borderRadius: "12px",
+          maxWidth: "800px",
+          margin: "0 auto",
         }}
-      />
-
-      <br />
-      <br />
-
-      <button onClick={sendMessage}>
-        Send
-      </button>
-
-      <h2>AI Reply</h2>
-
-      <p>{reply}</p>
+      >
+        <ChatInput />
+      </div>
     </main>
   );
 }
