@@ -4,6 +4,10 @@ import OpenAI from "openai";
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
+  defaultHeaders: {
+    "HTTP-Referer": "https://galaxy-next-psi.vercel.app",
+    "X-Title": "Galaxy Next AI",
+  },
 });
 
 export async function POST(req: Request) {
@@ -25,7 +29,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ reply });
   } catch (error: any) {
-    console.error("OpenRouter Error:", error);
+    console.error("OpenRouter Error:", JSON.stringify(error, null, 2));
 
     return NextResponse.json(
       {
