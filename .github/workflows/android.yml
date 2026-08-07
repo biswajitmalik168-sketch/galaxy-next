@@ -25,18 +25,17 @@ jobs:
       - name: Build Next.js
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: |
-          npm run build
+        run: npm run build -- --webpack
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -44,14 +43,7 @@ jobs:
       - name: Install Capacitor Android
         run: |
           npm install @capacitor/core @capacitor/cli @capacitor/android
-          mkdir -p android/app/src/main/assets/public
           npx cap sync android
-
-      - name: Build Debug APK
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug
 
       - name: Build Debug APK
         run: |
